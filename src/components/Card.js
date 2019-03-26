@@ -8,7 +8,7 @@ const Card = (props) => {
       <div className="details" onClick={props.remover}>
         <h1>Detail Card</h1>
         <h1>Description: {props.singleWeather.weather[0].description}</h1>
-        <h1>Wind Speed{props.singleWeather.wind.speed}</h1>
+        <h1>Wind Speed {props.singleWeather.wind.speed}</h1>
       </div>
     )
   }
@@ -17,7 +17,7 @@ const Card = (props) => {
     // debugger
     return (
       <div className="simple" onClick={detailHandler}>
-        <h1>Simple Card</h1>
+        <h1>Simple Card for {props.location}</h1>
         <h1>{props.singleWeather.dt_txt}</h1>
         <h1>{props.singleWeather.main.temp}</h1>
       </div>

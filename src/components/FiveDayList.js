@@ -7,7 +7,7 @@ class FiveDayList extends Component {
     let cards = []
     if (this.props.myWeather.length > 0){
       cards = this.props.myWeather.map(obj => {
-        return <Card singleWeather={obj} detailClicker={this.props.detailClicker} check={false}/>
+        return <Card singleWeather={obj} detailClicker={this.props.detailClicker} check={false} location={this.props.location}/>
       })
     }
     return (

@@ -8,7 +8,26 @@ class App extends Component {
   state = {
     location: "",
     myWeather: "",
-    currentDay: undefined
+    currentDay: undefined,
+    userInput: "",
+  }
+
+  weatherGrabber = (location) => {
+    fetch("http://localhost:3001/weather", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+          location: location
+        })
+    }).then(resp => resp.json()).then(
+        resp => { this.setState({
+          location: location,
+          myWeather: resp
+        })
+      })
   }
 
   componentDidMount(){
@@ -27,7 +46,7 @@ class App extends Component {
           resp => { this.setState({
             location: fresp['city'],
             myWeather: resp
-          })
+          }, ()=> console.log(this.state))
         })
     })
   }
@@ -39,12 +58,24 @@ class App extends Component {
     this.setState({currentDay: undefined})
   }
 
+  cardFilter = (val) => {
+    return val
+  }
+
+  filterArray = (arr) => {
+    if(cardFilter){
+      return array
+    } else {
+      return [...array].filter(student => student.name.toLowerCase().includes(this.state.userInput.toLowerCase()))
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <h1>APP.JS Weather</h1>
-        <Form />
-        <FiveDayList myWeather={this.state.myWeather} detailClicker={this.detailClicker}/>
+        <Form weatherGrabber={this.weatherGrabber} cardFilter={this.cardFilter}/>
+        <FiveDayList myWeather={this.state.myWeather} detailClicker={this.detailClicker} location={this.state.location}/>
         <WeatherCard currentDay={this.state.currentDay} remover={this.remover}/>
 
 

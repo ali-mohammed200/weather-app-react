@@ -3,16 +3,20 @@ import React, { Component } from 'react';
 
 class Form extends Component {
   state = {
-    location: ""
+    location: "",
+    dateFilter: ""
   }
 
   writer = (e) => {
     this.setState({location: e.target.value}, ()=> console.log(this.state.location))
-    this.tester()
   }
 
-  tester = () => {
-    console.log("yes")
+  filterFunc = (e) => {
+    this.setState({dateFilter: e.target.value}, ()=> this.props.cardFilter(this.state.dateFilter))
+  }
+
+  submitter = (e) => {
+    this.props.weatherGrabber(this.state.location)
   }
 
   render() {
@@ -20,7 +24,10 @@ class Form extends Component {
       <div>
         <h1>Form</h1>
         <input type="text" name="location" placeholder="Enter a location" value={this.state.location} onChange={this.writer}/>
-        <button>Submit</button>
+        <button onClick={this.submitter}>Submit</button>
+
+        <h1>Filter</h1>
+        <input type="text" name="dateFilter" placeholder="Filter by date" value={this.state.dateFilter} onChange={this.filterFunc}/>
       </div>
     );
   }
