@@ -59,14 +59,14 @@ class App extends Component {
   }
 
   cardFilter = (val) => {
-    return val
+    this.setState({userInput: val})
   }
 
-  filterArray = (arr) => {
-    if(cardFilter){
-      return array
+  filterArray = (weatherArr) => {
+    if(this.state.userInput == ""){
+      return weatherArr
     } else {
-      return [...array].filter(student => student.name.toLowerCase().includes(this.state.userInput.toLowerCase()))
+      return [...weatherArr].filter(elem => elem.dt_txt.includes(this.state.userInput))
     }
   }
 
@@ -74,8 +74,8 @@ class App extends Component {
     return (
       <div className="App">
         <h1>APP.JS Weather</h1>
-        <Form weatherGrabber={this.weatherGrabber} cardFilter={this.cardFilter}/>
-        <FiveDayList myWeather={this.state.myWeather} detailClicker={this.detailClicker} location={this.state.location}/>
+        <Form weatherGrabber={this.weatherGrabber} cardFilter={this.cardFilter} userInput={this.state.userInput}/>
+        <FiveDayList myWeather={this.filterArray(this.state.myWeather)} detailClicker={this.detailClicker} location={this.state.location}/>
         <WeatherCard currentDay={this.state.currentDay} remover={this.remover}/>
 
 

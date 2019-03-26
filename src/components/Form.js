@@ -12,7 +12,7 @@ class Form extends Component {
   }
 
   filterFunc = (e) => {
-    this.setState({dateFilter: e.target.value}, ()=> this.props.cardFilter(this.state.dateFilter))
+    this.props.cardFilter(e.target.value)
   }
 
   submitter = (e) => {
@@ -27,7 +27,7 @@ class Form extends Component {
         <button onClick={this.submitter}>Submit</button>
 
         <h1>Filter</h1>
-        <input type="text" name="dateFilter" placeholder="Filter by date" value={this.state.dateFilter} onChange={this.filterFunc}/>
+        <input type="text" name="dateFilter" placeholder="Filter by date" value={this.props.userInput} onChange={this.filterFunc}/>
       </div>
     );
   }
