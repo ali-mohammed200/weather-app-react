@@ -1,8 +1,10 @@
 import React from 'react'
+
 const Card = (props) => {
   const detailHandler = (e) => {
     props.detailClicker(props.singleWeather)
   }
+
   if (props.check){
     return (
       <div className="details" onClick={props.remover}>

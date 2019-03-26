@@ -4,10 +4,12 @@ import Card from './Card.js'
 class WeatherCard extends Component {
   render() {
     let card = <h1>card</h1>
+    
     if (this.props.currentDay){
       console.log("WC CARD", this.props.currentDay.weather[0].description)
       card = <Card singleWeather={this.props.currentDay} check={true} remover={this.props.remover}/>
     }
+
     return (
       <div className="weather">
         <h1>WeatherCard</h1>
@@ -18,5 +20,3 @@ class WeatherCard extends Component {
 }
 
 export default WeatherCard;
-// <Card myWeather={this.props.myWeather}/>
-// {(this.props.currentDay.length > 0) ? (<Card singleWeather={this.props.currentDay}/>) : null}

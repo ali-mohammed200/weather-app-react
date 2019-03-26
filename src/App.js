@@ -75,8 +75,11 @@ class App extends Component {
     return (
       <div className="App">
         <h1>APP.JS Weather</h1>
+        
         <Form weatherGrabber={this.weatherGrabber} cardFilter={this.cardFilter} userInput={this.state.userInput}/>
+
         <FiveDayList myWeather={this.filterArray(this.state.myWeather)} detailClicker={this.detailClicker} location={this.state.location}/>
+
         <WeatherCard currentDay={this.state.currentDay} remover={this.remover}/>
 
 
