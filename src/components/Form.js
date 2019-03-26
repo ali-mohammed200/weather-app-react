@@ -18,7 +18,7 @@ class Form extends Component {
   render() {
     return (
       <div>
-        <h1>Form Form Form</h1>
+        <h1>Form</h1>
         <input type="text" name="location" placeholder="Enter a location" value={this.state.location} onChange={this.writer}/>
         <button>Submit</button>
       </div>

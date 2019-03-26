@@ -6,9 +6,22 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-image: url(https://media.giphy.com/media/SXqEudpZ5ciM8/giphy.gif);
+  background-repeat: no-repeat;
+  background-size: cover; */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+/* https://s3.envato.com/files/35493339/Clouds_HD-05_prv.jpg */
+
+/* background-image: url("https://dreamsky10.com/wp-content/uploads/2016/08/extreme-wallpapers-HD4.jpg");
+height: 300%; */
+
+/* background-image: url(https://media.giphy.com/media/SXqEudpZ5ciM8/giphy.gif);
+background-repeat: no-repeat;
+background-size: cover; */

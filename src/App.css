@@ -31,3 +31,11 @@
     transform: rotate(360deg);
   }
 }
+
+.simple {
+  border-style: double;
+}
+.details {
+  border-style: dotted;
+  background-color: yellow;
+}
