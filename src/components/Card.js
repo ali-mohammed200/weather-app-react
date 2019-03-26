@@ -12,13 +12,20 @@ const Card = (props) => {
       </div>
     )
   }
+  const dayFinder = (val) => {
+    let days= ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    let cdate = new Date(val)
+    return days[cdate.getDay()]
+  }
   const cardMaker = () => {
     console.log("simple", props)
+
     // debugger
     return (
       <div className="simple" onClick={detailHandler}>
         <h1>Simple Card for {props.location}</h1>
         <h1>{props.singleWeather.dt_txt}</h1>
+        <h1>{dayFinder(props.singleWeather.dt_txt)}</h1>
         <h1>{props.singleWeather.main.temp}</h1>
       </div>
     )

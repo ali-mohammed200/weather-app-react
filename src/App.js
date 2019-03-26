@@ -25,7 +25,8 @@ class App extends Component {
     }).then(resp => resp.json()).then(
         resp => { this.setState({
           location: location,
-          myWeather: resp
+          myWeather: resp,
+          currentDay: undefined
         })
       })
   }
@@ -63,7 +64,7 @@ class App extends Component {
   }
 
   filterArray = (weatherArr) => {
-    if(this.state.userInput == ""){
+    if(this.state.userInput === ""){
       return weatherArr
     } else {
       return [...weatherArr].filter(elem => elem.dt_txt.includes(this.state.userInput))
@@ -86,6 +87,16 @@ class App extends Component {
 
 export default App;
 
+
+// converting date time using the date obj
+// let time = "2019-03-27 15:00:00";
+// time =
+// "2019-03-27 15:00:00"
+// let cdate = new Date(time)
+// cdate =
+// Wed Mar 27 2019 15:00:00 GMT-0400 (Eastern Daylight Time)
+// cdate.getDay()
+// 3
 
 
 // {this.state.currentDay ? (<WeatherCard currentDay={this.state.currentDay}/>) : null}
