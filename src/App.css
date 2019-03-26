@@ -39,3 +39,13 @@
   border-style: dotted;
   background-color: yellow;
 }
+
+.five {
+  display: inline;
+  float: left;
+}
+
+.weather{
+  display: inline;
+  float: right;
+}

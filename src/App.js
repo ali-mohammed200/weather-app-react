@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import Form from './components/Form'
 import FiveDayList from './components/FiveDayList'
+import WeatherCard from './components/WeatherCard';
 import './App.css';
 
 class App extends Component {
   state = {
     location: "",
-    myWeather: ""
+    myWeather: "",
+    currentDay: undefined
   }
 
   componentDidMount(){
@@ -25,9 +27,16 @@ class App extends Component {
           resp => { this.setState({
             location: fresp['city'],
             myWeather: resp
-          }, ()=> console.log(this.state))
+          })
         })
     })
+  }
+
+  detailClicker = (obj) => {
+    this.setState({currentDay: obj}, ()=> console.log(this.state))
+  }
+  remover = () => {
+    this.setState({currentDay: undefined})
   }
 
   render() {
@@ -35,7 +44,10 @@ class App extends Component {
       <div className="App">
         <h1>APP.JS Weather</h1>
         <Form />
-        <FiveDayList location={this.state.location} myWeather={this.state.myWeather}/>
+        <FiveDayList myWeather={this.state.myWeather} detailClicker={this.detailClicker}/>
+        <WeatherCard currentDay={this.state.currentDay} remover={this.remover}/>
+
+
       </div>
     );
   }
@@ -43,6 +55,9 @@ class App extends Component {
 
 export default App;
 
+
+
+// {this.state.currentDay ? (<WeatherCard currentDay={this.state.currentDay}/>) : null}
 
 // Getting a user location without permission using approximate ip address
 //  https://geoip-db.com/json/
